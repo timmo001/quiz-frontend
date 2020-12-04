@@ -71,8 +71,8 @@ function Layout(props: LayoutProps): ReactElement {
       <Head>
         <title>
           {props.title
-            ? `${props.title} - Material Frontend Template`
-            : `Material Frontend Template`}
+            ? `${props.title} - Quiz`
+            : `Quiz`}
         </title>
         <link
           rel="apple-touch-icon"
@@ -102,7 +102,7 @@ function Layout(props: LayoutProps): ReactElement {
               ? `${props.description}`
               : props.title
               ? `${props.title} - Frontend`
-              : `Material Frontend Template`
+              : `Quiz`
           }
         />
         <meta
