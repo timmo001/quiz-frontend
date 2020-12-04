@@ -1,6 +1,6 @@
 {
-    "name": "Frontend",
-    "short_name": "Frontend",
+    "name": "Quiz",
+    "short_name": "Quiz",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",

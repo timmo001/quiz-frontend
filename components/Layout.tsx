@@ -101,7 +101,7 @@ function Layout(props: LayoutProps): ReactElement {
             props.description
               ? `${props.description}`
               : props.title
-              ? `${props.title} - Frontend`
+              ? `${props.title} - Quiz`
               : `Quiz`
           }
         />
@@ -110,7 +110,7 @@ function Layout(props: LayoutProps): ReactElement {
           content={
             props.keywords
               ? `${props.keywords}`
-              : `material, frontend, template, material-ui, nextjs, reactjs, react, developer`
+              : `quiz, material-ui, nextjs, reactjs, react, developer`
           }
         />
         <meta name="msapplication-TileColor" content="#009688" />
@@ -122,7 +122,7 @@ function Layout(props: LayoutProps): ReactElement {
           <CssBaseline />
           <Header
             {...props}
-            brand="Frontend"
+            brand="Quiz"
             changeColorOnScroll={{
               height: 200,
               color: "primary",

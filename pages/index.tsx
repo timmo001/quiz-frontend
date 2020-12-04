@@ -20,12 +20,12 @@ function Home(props: HomeProps): ReactElement {
       classes={classes}
       title="Home"
       url="https://quiz.timmo.dev"
-      description="A Frontend Template written using Material UI Next.js/React in TypeScript.">
+      description="A Quiz.">
       <Container className={classes.main} component="article" maxWidth="xl">
         <Card>
           <CardContent>
             <Typography color="textPrimary" component="div">
-              <Markdown source="## Frontend" escapeHtml={false} />
+              <Markdown source="## Quiz" escapeHtml={false} />
             </Typography>
           </CardContent>
         </Card>
