@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import Head from "next/head";
-import { teal, indigo } from "@material-ui/core/colors";
+import { indigo, purple } from "@material-ui/core/colors";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import {
   createMuiTheme,
@@ -21,7 +21,7 @@ import Markdown from "./Markdown";
 let theme = createMuiTheme({
   palette: {
     type: "dark",
-    primary: teal,
+    primary: purple,
     secondary: indigo,
     contrastThreshold: 3,
     tonalOffset: 0.2,
@@ -69,11 +69,7 @@ function Layout(props: LayoutProps): ReactElement {
   return (
     <>
       <Head>
-        <title>
-          {props.title
-            ? `${props.title} - Quiz`
-            : `Quiz`}
-        </title>
+        <title>{props.title ? `${props.title} - Quiz` : `Quiz`}</title>
         <link
           rel="apple-touch-icon"
           sizes="180x180"

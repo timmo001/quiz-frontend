@@ -1,12 +1,9 @@
 import React, { ReactElement } from "react";
 import { GetStaticProps } from "next";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
+import { Container } from "@material-ui/core";
 
 import Layout from "../components/Layout";
-import Markdown from "../components/Markdown";
+import Questions from "../components/Questions/Questions";
 import useStyles from "../assets/jss/components/layout";
 
 interface HomeProps {}
@@ -22,13 +19,7 @@ function Home(props: HomeProps): ReactElement {
       url="https://quiz.timmo.dev"
       description="A Quiz.">
       <Container className={classes.main} component="article" maxWidth="xl">
-        <Card>
-          <CardContent>
-            <Typography color="textPrimary" component="div">
-              <Markdown source="## Quiz" escapeHtml={false} />
-            </Typography>
-          </CardContent>
-        </Card>
+        <Questions />
       </Container>
     </Layout>
   );
