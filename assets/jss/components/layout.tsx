@@ -1,3 +1,4 @@
+import { green, red } from "@material-ui/core/colors";
 import { makeStyles, Theme } from "@material-ui/core/styles";
 
 const layoutStyle = makeStyles((theme: Theme) => ({
@@ -62,6 +63,17 @@ const layoutStyle = makeStyles((theme: Theme) => ({
     marginTop: theme.spacing(2),
   },
   flex: { flex: 1 },
+  primary: {
+    color: "#FFFFFF !important",
+  },
+  success: {
+    color: "#FFFFFF !important",
+    backgroundColor: `${green[600]} !important`,
+  },
+  error: {
+    color: "#FFFFFF !important",
+    backgroundColor: `${red[600]} !important`,
+  },
 }));
 
 export default layoutStyle;
