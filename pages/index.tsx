@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import { Container } from "@material-ui/core";
 
 import Layout from "../components/Layout";
+import Setup from "../components/Setup";
 import useStyles from "../assets/jss/components/layout";
 
 interface HomeProps {
@@ -19,7 +20,7 @@ function Home(props: HomeProps): ReactElement {
       url="https://quiz.timmo.dev"
       description="A Quiz Platform">
       <Container className={classes.main} component="article" maxWidth="xl">
-        <div />
+        <Setup />
       </Container>
     </Layout>
   );
