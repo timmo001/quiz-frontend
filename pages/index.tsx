@@ -17,7 +17,7 @@ function Home(props: HomeProps): ReactElement {
       classes={classes}
       title="Home"
       url="https://quiz.timmo.dev"
-      description="A Quiz platform">
+      description="A Quiz Platform">
       <Container className={classes.main} component="article" maxWidth="xl">
         <div />
       </Container>

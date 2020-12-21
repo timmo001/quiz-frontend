@@ -18,7 +18,7 @@ function Play(props: PlayProps): ReactElement {
       classes={classes}
       title="Play"
       url="https://quiz.timmo.dev/play"
-      description="A Quiz platform - Play">
+      description="A Quiz Platform - Play">
       <Container className={classes.main} component="article" maxWidth="xl">
         <Questions {...props.query} />
       </Container>
