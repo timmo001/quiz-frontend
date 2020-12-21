@@ -19,7 +19,7 @@ function Home(props: HomeProps): ReactElement {
       url="https://quiz.timmo.dev"
       description="A Quiz.">
       <Container className={classes.main} component="article" maxWidth="xl">
-        <Questions />
+        <Questions amount={10} />
       </Container>
     </Layout>
   );

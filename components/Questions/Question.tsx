@@ -1,17 +1,38 @@
-import React, { ReactElement, useMemo, useState } from "react";
+import React, {
+  ReactElement,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import clsx from "clsx";
 import { Button, Card, CardContent, Grid, Typography } from "@material-ui/core";
 
+import { AnsweredQuestion } from "../../types/AnsweredQuestion";
 import { Question } from "../../types/OpenTriviaDB";
 import Markdown from "../Markdown";
 import useStyles from "../../assets/jss/components/layout";
 
 interface QuestionProps {
   question: Question;
+  handleAnswered: (answer: AnsweredQuestion) => void;
+}
+
+function usePrevious(value: any) {
+  const ref = useRef();
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
 }
 
 function Questions(props: QuestionProps): ReactElement {
   const [answer, setAnswer] = useState<string>();
+  const prevQuestion = usePrevious(props.question);
+
+  useEffect(() => {
+    if (prevQuestion !== props.question) setAnswer(undefined);
+  }, [props.question]);
 
   const {
     category,
@@ -19,7 +40,6 @@ function Questions(props: QuestionProps): ReactElement {
     difficulty,
     incorrect_answers,
     question,
-    type,
   }: Question = props.question;
 
   const answers: string[] = useMemo(() => {
@@ -39,6 +59,7 @@ function Questions(props: QuestionProps): ReactElement {
 
   const handleAnswered = (answer: string) => () => {
     setAnswer(answer);
+    props.handleAnswered({ ...props.question, answer });
   };
 
   const classes = useStyles();

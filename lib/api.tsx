@@ -5,7 +5,7 @@ import { OpenTDBResponse, Question } from "../types/OpenTriviaDB";
 const baseURL = "https://opentdb.com";
 
 export async function getQuestions(
-  amount?: number,
+  amount: number,
   category?: string,
   difficulty?: string,
   type?: string
@@ -22,5 +22,7 @@ export async function getQuestions(
       console.log("response:", response.data);
     return response.data.results;
   }
-  throw new Error(JSON.stringify(response.data));
+  throw new Error(
+    response.status === 200 ? "No data" : response.status.toString()
+  );
 }
