@@ -95,7 +95,7 @@ function Questions(props: QuestionProps): ReactElement {
                 disabled={answer ? true : false}
                 variant="contained"
                 onClick={handleAnswered(a)}>
-                {a}
+                <Markdown source={a} escapeHtml />
               </Button>
             </Grid>
           ))}

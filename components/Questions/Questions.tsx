@@ -1,13 +1,13 @@
+import { Card, CardContent, Typography } from "@material-ui/core";
 import React, { Fragment, ReactElement, useEffect, useState } from "react";
 
 import { getQuestions } from "../../lib/api";
 import { AnsweredQuestion } from "../../types/AnsweredQuestion";
 import { Question } from "../../types/OpenTriviaDB";
-import Countdown from "../Countdown";
 import Loading from "../Loading";
 import Q from "./Question";
 
-interface QuestionsProps {
+export interface QuestionsProps {
   amount: number;
   category?: string;
   difficulty?: string;
@@ -35,7 +35,15 @@ function Questions({
   function handleAnswered(answeredQuestion: AnsweredQuestion) {
     answeredQuestions.push(answeredQuestion);
     // setAnsweredQuestions(aq);
-    setTimeout(() => setCurrentQuestionIndex(currentQuestionIndex + 1), 5000);
+    setTimeout(
+      () =>
+        setCurrentQuestionIndex(
+          currentQuestionIndex >= questions.length - 1
+            ? -1
+            : currentQuestionIndex + 1
+        ),
+      4000
+    );
   }
 
   useEffect(() => {
@@ -46,6 +54,18 @@ function Questions({
     <Fragment>
       {!questions ? (
         <Loading text="Loading Questions.." />
+      ) : questions.length < 1 ? (
+        <Card>
+          <CardContent>
+            <Typography variant="h4">No Questions Found</Typography>
+          </CardContent>
+        </Card>
+      ) : currentQuestionIndex === -1 ? (
+        <Card>
+          <CardContent>
+            <Typography variant="h4">End card</Typography>
+          </CardContent>
+        </Card>
       ) : (
         <Q
           question={questions[currentQuestionIndex]}

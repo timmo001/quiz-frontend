@@ -1,8 +1,33 @@
 import axios, { AxiosResponse } from "axios";
 
-import { OpenTDBResponse, Question } from "../types/OpenTriviaDB";
+import {
+  Category,
+  OpenTDBCategoryResponse,
+  OpenTDBResponse,
+  Question,
+} from "../types/OpenTriviaDB";
 
 const baseURL = "https://opentdb.com";
+
+export async function getCategories(): Promise<Category[]> {
+  const response: AxiosResponse<
+    OpenTDBCategoryResponse<Category[]>
+  > = await axios.get("/api_category.php", {
+    baseURL,
+  });
+  if (
+    response.status === 200 &&
+    response.data &&
+    response.data.trivia_categories
+  ) {
+    if (process.env.NODE_ENV === "development")
+      console.log("response:", response.data);
+    return response.data.trivia_categories;
+  }
+  throw new Error(
+    response.status === 200 ? "No data" : response.status.toString()
+  );
+}
 
 export async function getQuestions(
   amount: number,

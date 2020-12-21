@@ -2,31 +2,32 @@ import React, { ReactElement } from "react";
 import { Container } from "@material-ui/core";
 
 import Layout from "../components/Layout";
+import Questions, { QuestionsProps } from "../components/Questions/Questions";
 import useStyles from "../assets/jss/components/layout";
 
-interface HomeProps {
-  query: {};
+interface PlayProps {
+  query: QuestionsProps;
 }
 
-function Home(props: HomeProps): ReactElement {
+function Play(props: PlayProps): ReactElement {
   const classes = useStyles();
 
   return (
     <Layout
       {...props}
       classes={classes}
-      title="Home"
-      url="https://quiz.timmo.dev"
-      description="A Quiz platform">
+      title="Play"
+      url="https://quiz.timmo.dev/play"
+      description="A Quiz platform - Play">
       <Container className={classes.main} component="article" maxWidth="xl">
-        <div />
+        <Questions {...props.query} />
       </Container>
     </Layout>
   );
 }
 
-Home.getInitialProps = async ({ query }) => {
+Play.getInitialProps = async ({ query }) => {
   return { query };
 };
 
-export default Home;
+export default Play;
