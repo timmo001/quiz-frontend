@@ -77,6 +77,9 @@ const layoutStyle = makeStyles((theme: Theme) => ({
   splitter: {
     margin: theme.spacing(4, 0),
   },
+  indent: {
+    marginLeft: theme.spacing(2),
+  },
 }));
 
 export default layoutStyle;

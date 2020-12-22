@@ -45,7 +45,7 @@ function EndCard({ answers }: EndCardProps): ReactElement {
           Incorrect:
         </Typography>
         {incorrectAnswers.map((a: AnsweredQuestion, index: number) => (
-          <Fragment key={index}>
+          <div className={classes.indent} key={index}>
             <Typography variant="h5">
               <Markdown source={a.question} escapeHtml={true} />
             </Typography>
@@ -57,7 +57,7 @@ function EndCard({ answers }: EndCardProps): ReactElement {
               />
             </Typography>
             {index === incorrectAnswers.length - 1 ? "" : <Divider light />}
-          </Fragment>
+          </div>
         ))}
       </CardContent>
     </Card>
