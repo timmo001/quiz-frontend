@@ -5,6 +5,7 @@ import { getQuestions } from "../../lib/api";
 import { AnsweredQuestion } from "../../types/AnsweredQuestion";
 import { Question } from "../../types/OpenTriviaDB";
 import Loading from "../Loading";
+import EndCard from "./EndCard";
 import Q from "./Question";
 
 export interface QuestionsProps {
@@ -61,11 +62,7 @@ function Questions({
           </CardContent>
         </Card>
       ) : currentQuestionIndex === -1 ? (
-        <Card>
-          <CardContent>
-            <Typography variant="h4">End card</Typography>
-          </CardContent>
-        </Card>
+        <EndCard answers={answeredQuestions} />
       ) : (
         <Q
           question={questions[currentQuestionIndex]}

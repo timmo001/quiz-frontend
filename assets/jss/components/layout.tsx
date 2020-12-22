@@ -74,6 +74,9 @@ const layoutStyle = makeStyles((theme: Theme) => ({
     color: "#FFFFFF !important",
     backgroundColor: `${red[600]} !important`,
   },
+  splitter: {
+    margin: theme.spacing(4, 0),
+  },
 }));
 
 export default layoutStyle;
